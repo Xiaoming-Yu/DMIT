@@ -1,0 +1,15 @@
+import importlib
+from models.base_model import BaseModel
+
+def create_model(opt):
+    model_filename = "models." + opt.model_name + '_model'
+    modellib = importlib.import_module(model_filename)
+    model = None
+    target_model_name = opt.model_name.replace('_', '') + 'model'
+    for name, cls in modellib.__dict__.items():
+        if name.lower() == target_model_name.lower() \
+           and issubclass(cls, BaseModel):
+            model = cls
+    if model is None:
+        raise NotImplementedError("In %s.py, there should be a subclass of BaseModel with class name that matches %s in lowercase." % (model_filename, target_model_name))
+    return model(opt)
