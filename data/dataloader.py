@@ -13,23 +13,6 @@ def CreateDataLoader(opt):
             dataset = cls
     if dataset is None:
         raise NotImplementedError("In %s.py, there should be a subclass of torch.utils.data.Dataset with class name that matches %s in lowercase." % (dataset_filename, target_dataset_name))
-    # if opt.data_type ==  'unpaired':
-        # dataset = UnPairedDataset(opt.dataroot,
-                                # opt.load_size,
-                                # opt.fine_size,
-                                # opt.is_flip,
-                                # opt.is_train,
-                                # opt.n_attribute)
-    # elif opt.data_type ==  'cub':
-        # dataset = TextDataset(opt.dataroot,
-                            # is_train=opt.is_train,
-                            # load_size=opt.load_size,
-                            # fine_size=opt.fine_size,
-                            # is_flip = opt.is_flip)
-        # opt.n_words = dataset.n_words
-    # else:
-        # raise NotImplementedError
-        
     data_loader = DataLoader(dataset=dataset(opt),
                              batch_size=opt.batch_size,
                              pin_memory=True,

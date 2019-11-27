@@ -1,5 +1,5 @@
 python ./test.py \
-  --dataroot  ./datasets/summer2winter \
+  --dataroot  ./datasets/summer2winter_yosemite \
   --checkpoints_dir ./checkpoints \
   --exp_name dmit_season_transfer \
   --model_name season_transfer \

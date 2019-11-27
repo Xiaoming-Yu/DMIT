@@ -15,10 +15,10 @@ class BaseModel(ABC):
     def __init__(self, opt):
         if opt.gpu>=0:
             self.device = torch.device('cuda:%d'%opt.gpu)
-        else:
-            self.device = torch.device('cpu')
             torch.cuda.set_device(opt.gpu)
             cudnn.benchmark = True
+        else:
+            self.device = torch.device('cpu')
         self.opt = opt
         self.start_epoch=0
         self.current_data=None
@@ -37,7 +37,7 @@ class BaseModel(ABC):
             self.dis_rand_enc = self.dis_rand_prior
             ckpt = None
             if self.opt.continue_train:
-                ckpt = torch.load('{}/resume.pth'.format(self.opt.model_dir))
+                ckpt = torch.load('{}/resume.pth'.format(self.opt.model_dir),map_location='cpu')
                 self.start_epoch = ckpt['epoch']
             self._init_net(self.dec,'dec',ckpt)
             self._init_net(self.enc_style,'enc_style',ckpt)
@@ -75,7 +75,7 @@ class BaseModel(ABC):
 
     
     def _eval_net(self, net, net_name):
-        net.load_state_dict(torch.load('{}/{}_{}.pth'.format(self.opt.model_dir,net_name,self.opt.which_epoch)))
+        net.load_state_dict(torch.load('{}/{}_{}.pth'.format(self.opt.model_dir,net_name,self.opt.which_epoch),map_location='cpu'))
         net.to(self.device)
         net.eval()
 

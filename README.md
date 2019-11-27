@@ -2,7 +2,9 @@
 
 Pytorch implementation of our paper: ["Multi-mapping Image-to-Image Translation via Learning Disentanglement"](https://arxiv.org/abs/1909.07877).
 
-
+<p align="center">
+<img src='images/framework.jpg'  align="center" width='90%'>
+</p>
 
 ## Dependencies
 you can install all the dependencies  by
@@ -13,12 +15,26 @@ pip install -r requirements.txt
 ## Getting Started
 
 ### Datasets
-Coming soon...
+- Download and unzip preprocessed datasets by
+	- Season Transfer 
+		```
+		bash ./scripts/download_datasets.sh summer2winter_yosemite
+		```
+	- Semantic Image Synthesis 
+		```
+		bash ./scripts/download_datasets.sh birds
+		```
+
+- Or you can manually download them from [CycleGAN](https://github.com/junyanz/CycleGAN) and [AttnGAN](https://github.com/taoxugit/AttnGAN).
 
 ### Training
 - Season Transfer
 	```
 	bash ./scripts/train_season_transfer.sh
+	```
+- Semantic Image Synthesis 
+	```
+	bash ./scripts/train_semantic_image_synthesis.sh
 	```
 - To view training results and loss plots, run python -m visdom.server and click the URL http://localhost:8097. More intermediate results can be found in environment `exp_name`.
 
@@ -26,11 +42,24 @@ Coming soon...
 - Run
 	```
 	bash ./scripts/test_season_transfer.sh
+	bash ./scripts/test_semantic_image_synthesis.sh
 	```
-- The testing results will be saved in `checkpoints/dmit_season_transfer/results` directory.
+- The testing results will be saved in `checkpoints/{exp_name}/results` directory.
 
+### Custom Experiment  
+You can implement your [Dataset](https://github.com/Xiaoming-Yu/DMIT/blob/master/data/template_dataset.py) and [SubModel](https://github.com/Xiaoming-Yu/DMIT/blob/master/models/template_model.py) to start a new experiment.
 
+### Results
 
+#### Season Transfer: 
+<p align="center">
+<img src='images/season_transfer.jpg'  align="center" width='90%'>
+</p>
+
+#### Semantic Image Synthesis: 
+<p align="center">
+<img src='images/semantic_image_synthesis.jpg'  align="center" width='90%'>
+</p>
 
 #### bibtex
 If this work is useful for your research, please consider citing :

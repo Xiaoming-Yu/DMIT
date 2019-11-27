@@ -7,7 +7,6 @@ from nltk.tokenize import RegexpTokenizer
 from collections import defaultdict
 import torch
 import torch.utils.data as data
-from torch.autograd import Variable
 import torchvision.transforms as transforms
 import os
 import sys
