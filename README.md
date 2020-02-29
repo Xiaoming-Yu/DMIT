@@ -74,6 +74,8 @@ If this work is useful for your research, please consider citing :
  ```
 ### Acknowledgement
 The code used in this research is inspired by [BicycleGAN](https://github.com/junyanz/BicycleGAN), [MUNIT](https://github.com/NVlabs/MUNIT), [DRIT](https://github.com/HsinYingLee/DRIT), [AttnGAN](https://github.com/taoxugit/AttnGAN), and [SingleGAN](https://github.com/Xiaoming-Yu/SingleGAN).
+
+The diversity regulazation used in the current version is inspired by [DSGAN](https://github.com/maga33/DSGAN) and [MSGAN](https://github.com/HelenMao/MSGAN).
 ### Contact
 Feel free to reach me if there is any questions (xiaomingyu@pku.edu.cn).
 
