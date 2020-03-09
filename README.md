@@ -46,6 +46,9 @@ pip install -r requirements.txt
 	```
 - The testing results will be saved in `checkpoints/{exp_name}/results` directory.
 
+### Pretrained Models
+Pretrained models can be downloaded from [Google Drive](https://drive.google.com/open?id=1SdF7ZpX0wzkl-UslU4hhZcaN7EbfnHr4) or [Baidu Wangpan](https://pan.baidu.com/s/1NUNdvGks928EWivqDoRF-w) with code `59tm`.
+
 ### Custom Experiment  
 You can implement your [Dataset](https://github.com/Xiaoming-Yu/DMIT/blob/master/data/template_dataset.py) and [SubModel](https://github.com/Xiaoming-Yu/DMIT/blob/master/models/template_model.py) to start a new experiment.
 
