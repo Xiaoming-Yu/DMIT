@@ -71,7 +71,6 @@ If this work is useful for your research, please consider citing :
   title={Multi-mapping Image-to-Image Translation via Learning Disentanglement},
   author={Yu, Xiaoming and Chen, Yuanqi and Liu, Shan and Li, Thomas and Li, Ge},
   booktitle={Advances in Neural Information Processing Systems},
-  pages={2990--2999},
   year={2019}
 }
  ```
