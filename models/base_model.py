@@ -59,15 +59,15 @@ class BaseModel(ABC):
             self._eval_net(self.enc_content,'enc_content')
     
     def _init_net(self, net, net_name, ckpt):
+        net.to(self.device)
         net_optimizer = self.define_optimizer(net)
         if ckpt is not None:
-            net.load_state_dict(ckpt['net_name']['weight'])
-            net_optimizer.load_state_dict(ckpt['net_name']['optimizer'])
+            net.load_state_dict(ckpt[net_name]['weight'])
+            net_optimizer.load_state_dict(ckpt[net_name]['optimizer'])
             lr_scheduler = util.get_scheduler(net_optimizer,self.opt,ckpt['epoch'])
         else:
             net.apply(network.weights_init(self.opt.init_type))
             lr_scheduler = util.get_scheduler(net_optimizer,self.opt,-1)
-        net.to(self.device)
         net.train()
         self.nets[net_name] = net
         self.optimizers[net_name] = net_optimizer
